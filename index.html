@@ -13,6 +13,19 @@
     text-align: center;
   }
 
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .header img {
+    width: 38px;
+    height: 38px;
+  }
+
   .card {
     background: #161b22;
     padding: 15px;
@@ -46,28 +59,27 @@
 </head>
 <body>
 
-<h2>Join Our Telegram Channels</h2>
+<div class="header">
+  <img src="https://i.ibb.co/zW85Rrm7/x.jpg">
+  <h2>Join Our Telegram Channels</h2>
+</div>
 
 <div id="channels"></div>
 
 <script>
-  // ================================
-  // 4 CHANNEL TITLE + IMAGE + LINK
-  // Replace with your own details
-  // ================================
   const CHANNELS = [
     {
       title: "OLD IS GOLD 🪙",
-      img: "https://via.placeholder.com/400x250.png?text=Channel+1+Thumbnail",
-      url: "https://t.me/PLACEHOLDER_1"
+      img: "https://i.ibb.co/sp6KRcdV/x.jpg",
+      url: "https://t.me/+Y2fhfk3QUdA1Mzk9"
     },
     {
-      title: "Channel 2",
-      img: "https://via.placeholder.com/400x250.png?text=Channel+2+Thumbnail",
-      url: "https://t.me/PLACEHOLDER_2"
+      title: "DIGITAL INDIA",
+      img: "https://i.ibb.co/tM7ZwVc9/x.jpg",
+      url: "https://t.me/+-JfptRJ-V0E5N2I9"
     },
     {
-      title: "Channel 3",
+      title: "new channel coming soon",
       img: "https://via.placeholder.com/400x250.png?text=Channel+3+Thumbnail",
       url: "https://t.me/PLACEHOLDER_3"
     },
@@ -78,7 +90,6 @@
     }
   ];
 
-  // OBFUSCATE LINKS (safe)
   const hiddenLinks = CHANNELS.map(obj => {
     return {
       title: obj.title,
@@ -87,7 +98,6 @@
     };
   });
 
-  // RENDER CARDS
   const container = document.getElementById("channels");
 
   hiddenLinks.forEach((ch, i) => {
@@ -103,7 +113,6 @@
     container.appendChild(div);
   });
 
-  // DECODE & REDIRECT
   function openLink(i) {
     const decoded = atob(hiddenLinks[i].code).split("").reverse().join("");
     window.location.href = decoded;
